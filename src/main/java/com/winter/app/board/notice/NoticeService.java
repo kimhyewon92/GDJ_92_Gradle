@@ -29,4 +29,8 @@ public class NoticeService {
 		return pages;
 	}
 	
+	public NoticeVO add(NoticeVO noticeVO) throws Exception{
+		return noticeRepository.save(noticeVO);
+	}
+	
 }

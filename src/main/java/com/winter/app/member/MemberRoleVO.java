@@ -36,7 +36,7 @@ public class MemberRoleVO {
 	
 	//또는 MemberRolePK생성 embeddable
 	@Id
-	@MapsId("username")
+//	@MapsId("username")
 	private MemberVO memberVO;
 	
 	@ManyToOne

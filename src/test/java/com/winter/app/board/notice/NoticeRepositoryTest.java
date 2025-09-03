@@ -28,6 +28,7 @@ class NoticeRepositoryTest {
 	private NoticeFileRepository noticeFileRepository;
 	
 	@Test
+	@Rollback(value = false)
 	void test() throws Exception {
 		NoticeVO noticeVO = new NoticeVO();
 		noticeVO.setBoardTitle("title4");

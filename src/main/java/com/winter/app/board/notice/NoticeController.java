@@ -10,6 +10,7 @@ import org.springframework.data.web.PageableDefault;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -33,6 +34,17 @@ public class NoticeController {
 		return noticeVO;
 	}
 	
-	
+	@PostMapping("")
+	public boolean add(NoticeVO noticeVO) throws Exception{
+		System.out.println(noticeVO.getBoardTitle());
+		System.out.println(noticeVO.getBoardWriter());
+		System.out.println(noticeVO.getBoardContents());
+		noticeVO = noticeService.add(noticeVO);
+		if(noticeVO != null) {
+			return true;
+		}
+		
+		return false;
+	}
 	
 }
