@@ -1,4 +1,8 @@
+import { useNavigate } from "react-router-dom";
+
 export default function Login(){
+
+  const nav = useNavigate()
 
   function login(e){
     e.preventDefault();
@@ -17,6 +21,9 @@ export default function Login(){
     .then(r=>{
       const header = r.headers;
       console.log(header.get("accessToken"))
+      localStorage.setItem("accessToken", header.get("accessToken"))
+      sessionStorage.setItem("accessToken", header.get("accessToken"))
+      nav("/")
     })
     .catch(e=>console.log(e))
 
