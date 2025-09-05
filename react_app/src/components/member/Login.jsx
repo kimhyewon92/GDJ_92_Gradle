@@ -13,8 +13,11 @@ export default function Login(){
       method:"POST",
       body:form
     })
-    .then(r=>r.json())
-    .then(r=>console.log(r))
+    //.then(r=>r.json())
+    .then(r=>{
+      const header = r.headers;
+      console.log(header.get("accessToken"))
+    })
     .catch(e=>console.log(e))
 
   }
@@ -22,8 +25,8 @@ export default function Login(){
   return(
     <>
       <h1>Login page</h1>
-      <form>
-        <div onSubmit={login}>
+      <form onSubmit={login}>
+        <div>
           <input type="text" name="username"></input>
           <input type="password" name="password"></input>
           <button>Login</button>
